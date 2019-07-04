@@ -28,6 +28,15 @@ public class Produto implements Serializable  {
         return nome;
     }
 
+    public Produto setId(long id) {
+        this.id = id;
+        return this;
+    }
+
+    public long getId() {
+        return this.id;
+    }
+
     public Produto setNome(String nome) {
         this.nome = nome;
         return this;
