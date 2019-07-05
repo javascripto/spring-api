@@ -26,8 +26,20 @@ public class ProdutoResource {
         return produtoRepository.findById(id);
     }
 
-    @PostMapping("/produto")
+    @PostMapping("/produtos")
     public Produto salvarProduto(@RequestBody Produto produto) {
+        return produtoRepository.save(produto);
+    }
+
+    @DeleteMapping("/produto/{id}")
+    public void removerProduto(@PathVariable(value="id") long id) {
+        Produto produto = produtoRepository.findById(id);
+        produtoRepository.delete(produto);
+    }
+
+    @PutMapping("/produto/{id}")
+    public Produto atualizarProduto(@RequestBody Produto produto, @PathVariable(value="id") long id) {
+        produto.setId(id);
         return produtoRepository.save(produto);
     }
 }
